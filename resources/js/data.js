@@ -182,7 +182,7 @@ export const siteData = {
       id: 2,
       name: "Mme Fatou Ouédraogo",
       position: "Responsable Projets",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786",
+      image: "https://images.pexels.com/photos/30920008/pexels-photo-30920008.jpeg", 
       bio: "Ingénieure en génie civil spécialisée dans les infrastructures rurales",
       email: "f.ouedraogo@fondationphm.org"
     },

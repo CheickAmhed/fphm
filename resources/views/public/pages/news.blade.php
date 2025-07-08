@@ -42,7 +42,7 @@
                         <img 
                             src="https://images.pexels.com/photos/32826199/pexels-photo-32826199.jpeg"
                             alt="Festival Allons à Louda"
-                            style="width: 100%; border-radius: 1rem; box-shadow: var(--shadow-lg);"
+                            style="width: 100%; height: 300px; border-radius: 1rem; box-shadow: var(--shadow-lg);"
                         >
                     </div>
                     <div>
@@ -92,6 +92,8 @@
             </section>
         </div>
     </div>
+
+    <br>
 
 
     <script>

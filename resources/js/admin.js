@@ -1,6 +1,13 @@
 // Moved from public/js/admin.js
 // Admin Panel Core Functionality
 
+import {
+  MOCK_DATA,
+  getMockData,
+} from './mock-data.js';
+
+
+
 class AdminPanel {
     constructor() {
         this.currentUser = null;
@@ -14,8 +21,8 @@ class AdminPanel {
     
     init() {
         this.setupEventListeners();
-        this.checkAuthentication();
         this.setupResponsive();
+        this.showDashboard();
     }
     
     setupEventListeners() {
@@ -85,26 +92,6 @@ class AdminPanel {
         }
     }
     
-    checkAuthentication() {
-        // Check if user is already authenticated
-        const savedAuth = localStorage.getItem('phm_admin_auth');
-        if (savedAuth) {
-            try {
-                const authData = JSON.parse(savedAuth);
-                if (authData.expires > Date.now()) {
-                    this.isAuthenticated = true;
-                    this.currentUser = authData.user;
-                    this.showDashboard();
-                    return;
-                }
-            } catch (e) {
-                localStorage.removeItem('phm_admin_auth');
-            }
-        }
-        
-        this.showLogin();
-    }
-    
     async handleLogin(e) {
         e.preventDefault();
         
@@ -171,11 +158,6 @@ class AdminPanel {
         });
     }
     
-    showLogin() {
-        document.getElementById('login-page').style.display = 'flex';
-        document.getElementById('admin-dashboard').style.display = 'none';
-    }
-    
     showDashboard() {
         document.getElementById('login-page').style.display = 'none';
         document.getElementById('admin-dashboard').style.display = 'flex';
@@ -185,18 +167,6 @@ class AdminPanel {
         
         // Add fade-in animation
         document.getElementById('admin-dashboard').classList.add('fade-in');
-    }
-    
-    logout() {
-        this.isAuthenticated = false;
-        this.currentUser = null;
-        localStorage.removeItem('phm_admin_auth');
-        
-        this.showNotification('Déconnexion réussie', 'info');
-        
-        setTimeout(() => {
-            this.showLogin();
-        }, 1000);
     }
     
     toggleSidebar() {
@@ -601,22 +571,18 @@ class AdminPanel {
                 <div class="card-header">
                     <h3>Utilisateurs Administrateurs</h3>
                 </div>
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Utilisateur</th>
-                                <th>Email</th>
-                                <th>Rôle</th>
-                                <th>Dernière connexion</th>
-                                <th>Statut</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="users-table-body">
-                            <!-- Users will be loaded here -->
-                        </tbody>
-                    </table>
+                <div class="user-card">
+                    <div class="user-card-header">
+                        <div class="user-avatar">AP</div>
+                        <div class="user-info-text">
+                        <h3 class="user-name">Amhed Pakodé</h3>
+                        <p class="user-role">Administrateur</p>
+                        </div>
+                    </div>
+                    <div class="user-card-body">
+                        <p><strong>Email:</strong> amhed@example.com</p>
+                        <p><strong>Telephone:</strong> +22676483971</p>
+                    </div>
                 </div>
             </div>
         `;

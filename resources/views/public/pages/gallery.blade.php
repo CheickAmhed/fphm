@@ -1,7 +1,7 @@
 @extends('public.layouts.app')
 
 @section('content')
-    <section style="position: relative; height: 400px; background: linear-gradient(135deg, var(--purple-500), var(--purple-600)); display: flex; align-items: center; justify-content: center;">
+    <section style="padding-top: 80px; position: relative; height: 400px; background: linear-gradient(135deg, var(--purple-500), var(--purple-600)); display: flex; align-items: center; justify-content: center;">
         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
         <div class="container" style="position: relative; z-index: 10; text-align: center; color: white;">
             <div style="font-size: 4rem; margin-bottom: 1.5rem;">📸</div>
@@ -102,7 +102,7 @@
                         <img 
                             src="https://images.unsplash.com/photo-1578662996442-48f60103fc96" 
                             alt="Avant réhabilitation"
-                            style="width: 100%; border-radius: 1rem; box-shadow: var(--shadow-md);"
+                            style="width: 100%; height: 500px; border-radius: 1rem; box-shadow: var(--shadow-md);"
                         >
                     </div>
                     <div>
@@ -110,7 +110,7 @@
                         <img 
                             src="https://images.unsplash.com/photo-1725083802424-e4bf1144ad4e" 
                             alt="Après réhabilitation"
-                            style="width: 100%; border-radius: 1rem; box-shadow: var(--shadow-md);"
+                            style="width: 100%; height: 500px; border-radius: 1rem; box-shadow: var(--shadow-md);"
                         >
                     </div>
                 </div>
@@ -124,8 +124,10 @@
         </div>
     </div>
 
+    <br>
+
     <!-- Modal pour les images -->
-    <div id="image-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 2rem;">
+    <div id="image-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center; padding: 2rem;">
         <div style="position: relative; max-width: 90vw; max-height: 90vh;">
             <button id="close-modal" style="position: absolute; top: -3rem; right: 0; background: white; color: black; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.5rem;">
                 ×
@@ -228,7 +230,6 @@
                     
                     item.addEventListener('mouseleave', () => {
                         img.style.transform = 'scale(1)';
-                        overlay.style.opacity = '0';
                         item.style.transform = 'translateY(0)';
                     });
                     

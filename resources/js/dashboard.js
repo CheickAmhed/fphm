@@ -1,5 +1,6 @@
-// Moved from public/js/dashboard.js
 // Dashboard Management for Admin Panel
+
+import { MOCK_DATA } from './mock-data.js';
 
 class DashboardManager {
     constructor() {

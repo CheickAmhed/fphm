@@ -275,26 +275,23 @@ const MOCK_PAYMENT_METHODS = [
 ];
 
 // Export all mock data
-window.MOCK_DATA = {
-    images: MOCK_IMAGES,
-    projects: MOCK_PROJECTS,
-    news: MOCK_NEWS,
-    team: MOCK_TEAM,
-    testimonials: MOCK_TESTIMONIALS,
-    events: MOCK_EVENTS,
-    stats: MOCK_STATS,
-    partners: MOCK_PARTNERS,
-    contact: MOCK_CONTACT,
-    paymentMethods: MOCK_PAYMENT_METHODS
+export const MOCK_DATA = {
+  images: MOCK_IMAGES,
+  projects: MOCK_PROJECTS,
+  news: MOCK_NEWS,
+  team: MOCK_TEAM,
+  testimonials: MOCK_TESTIMONIALS,
+  events: MOCK_EVENTS,
+  stats: MOCK_STATS,
+  partners: MOCK_PARTNERS,
+  contact: MOCK_CONTACT,
+  paymentMethods: MOCK_PAYMENT_METHODS,
 };
 
 // Utility function to get mock data
-function getMockData(type, id = null) {
-    if (id) {
-        return window.MOCK_DATA[type].find(item => item.id === id);
-    }
-    return window.MOCK_DATA[type];
+export function getMockData(type, id = null) {
+  if (id) {
+    return MOCK_DATA[type].find(item => item.id === id);
+  }
+  return MOCK_DATA[type];
 }
-
-// Export utility function
-window.getMockData = getMockData;

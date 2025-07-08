@@ -1,7 +1,7 @@
 @extends('public.layouts.app')
 
 @section('content')
-    <section style="position: relative; height: 400px; background: linear-gradient(135deg, var(--green-500), #059669); display: flex; align-items: center; justify-content: center;">
+    <section style="padding-top: 80px; position: relative; height: 400px; background: linear-gradient(135deg, var(--green-500), #059669); display: flex; align-items: center; justify-content: center;">
         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
         <div class="container" style="position: relative; z-index: 10; text-align: center; color: white;">
             <div style="font-size: 4rem; margin-bottom: 1.5rem;">📞</div>
@@ -216,7 +216,7 @@
                     Questions fréquentes
                 </h2>
                 
-                <div style="max-width: 48rem; margin: 0 auto;">
+                <div style="max-width: 100%; margin: 0 auto;">
                     <div class="faq-list">
                         <div class="card faq-item" style="margin-bottom: 1rem;">
                             <div class="card-content">
@@ -270,6 +270,8 @@
             </section>
         </div>
     </div>
+
+    <br>
 
 
     <script>

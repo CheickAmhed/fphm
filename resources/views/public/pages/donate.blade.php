@@ -1,7 +1,7 @@
 @extends('public.layouts.app')
 
 @section('content')
-    <section style="position: relative; height: 400px; background: linear-gradient(135deg, var(--red-500), var(--red-600)); display: flex; align-items: center; justify-content: center;">
+    <section style="padding-top: 80px; position: relative; height: 480px; background: linear-gradient(135deg, var(--red-500), var(--red-600)); display: flex; align-items: center; justify-content: center;">
         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
         <div class="container" style="position: relative; z-index: 10; text-align: center; color: white;">
             <div style="font-size: 4rem; margin-bottom: 1.5rem;">❤️</div>
@@ -16,7 +16,7 @@
     </section>
 
     <div style="padding-top: 80px;">
-        <div class="container" style="max-width: 64rem; margin: 0 auto;">
+        <div class="container" style="max-width: 97rem; margin: 0 auto;">
             <form class="donation-form" style="display: flex; flex-direction: column; gap: 3rem;">
                 
                 <!-- Packages de don -->
@@ -81,17 +81,17 @@
                                 <span style="font-size: 1.25rem; color: var(--red-500); margin-right: 0.5rem;">❤️</span>
                                 Montant personnalisé
                             </h3>
+                            <div style="margin-bottom: 0.5rem;">
+                                <label for="custom-amount" style="display: block; font-weight: 600;">Montant en FCFA</label>
+                            </div>
                             <div style="display: flex; align-items: center; gap: 1rem;">
-                                <div style="flex: 1;">
-                                    <label for="custom-amount" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Montant en FCFA</label>
-                                    <input 
-                                        id="custom-amount" 
-                                        name="amount"
-                                        type="number" 
-                                        placeholder="Entrez votre montant" 
-                                        style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 0.5rem;"
-                                    >
-                                </div>
+                                <input 
+                                    id="custom-amount" 
+                                    name="amount"
+                                    type="number" 
+                                    placeholder="Entrez votre montant" 
+                                    style="flex: 1; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 0.5rem;"
+                                >
                                 <button type="button" class="btn btn-outline custom-btn">
                                     Choisir
                                 </button>
@@ -106,7 +106,7 @@
                         Mode de paiement
                     </h2>
                     <div class="grid grid-cols-2">
-                        <div class="card payment-method" style="cursor: pointer;" data-method="mobile">
+                        <div id="mobile-payment" class="card payment-method" style="cursor: pointer;" data-method="mobile">
                             <div class="card-content" style="text-align: center;">
                                 <div style="font-size: 3rem; color: var(--primary-blue); margin-bottom: 1rem;">📱</div>
                                 <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Mobile Money</h3>
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         
-                        <div class="card payment-method" style="cursor: pointer;" data-method="card">
+                        <div id="card-payment" class="card payment-method" style="cursor: pointer;" data-method="card">
                             <div class="card-content" style="text-align: center;">
                                 <div style="font-size: 3rem; color: var(--green-500); margin-bottom: 1rem;">💳</div>
                                 <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Carte bancaire</h3>
@@ -131,36 +131,83 @@
                     </h2>
                     <div class="card">
                         <div class="card-content">
-                            <div class="grid grid-cols-2" style="gap: 1.5rem;">
+                            <div id="mobile-payment-content" class="grid grid-cols-2" style="gap: 1.5rem;">
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="flex: 1;">
+                                        <label for="operator" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Opérateur *</label>
+                                        <select name="operator" id="operator" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 0.5rem; background:none;">
+                                            <option value="" selected disabled hidden></option>
+                                            <option value="orange">Orange Money</option>
+                                            <option value="moov">Moov Money</option>
+                                            <option value="telecel">Telecel Money</option>
+                                            <option value="sank">Sank Money</option>
+                                        </select>
+                                    </div>
+
+                                    <div style="flex: 1;">
+                                        <label for="phone" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Téléphone *</label>
+                                        <input 
+                                            id="phone" 
+                                            name="phone"
+                                            type="tel" 
+                                            required 
+                                            style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 0.5rem;"
+                                        >
+                                    </div>
+                                </div>
+
                                 <div>
-                                    <label for="name" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Nom complet *</label>
+                                    <label for="otp" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Code OTP *</label>
                                     <input 
-                                        id="name" 
-                                        name="name"
-                                        type="text" 
+                                        id="otp" 
+                                        name="otp"
+                                        type="number" 
                                         required 
                                         style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 0.5rem;"
                                     >
                                 </div>
                                 <div>
-                                    <label for="email" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Email *</label>
+                                    <label for="message" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Message (optionnel)</label>
+                                    <textarea 
+                                        id="message" 
+                                        name="message"
+                                        placeholder="Votre message..." 
+                                        style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 0.5rem; height: 100px; resize: vertical;"
+                                    ></textarea>
+                                </div>
+                            </div>
+                            <div id="card-payment-content" class="grid grid-cols-2" style="gap: 1.5rem; display: none;">
+                                <div>
+                                    <label for="card-number" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Numero de carte *</label>
                                     <input 
-                                        id="email" 
-                                        name="email"
-                                        type="email" 
+                                        id="card-number" 
+                                        name="card-number"
+                                        type="number" 
                                         required 
                                         style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 0.5rem;"
                                     >
                                 </div>
-                                <div>
-                                    <label for="phone" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Téléphone *</label>
-                                    <input 
-                                        id="phone" 
-                                        name="phone"
-                                        type="tel" 
-                                        required 
-                                        style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 0.5rem;"
-                                    >
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="flex: 1;">
+                                        <label for="exp-date" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Date d'expiration *</label>
+                                        <input 
+                                            id="exp-date" 
+                                            name="exp-date"
+                                            type="date" 
+                                            required 
+                                            style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 0.5rem;"
+                                        >
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <label for="cvc" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">CVC *</label>
+                                        <input 
+                                            id="cvc" 
+                                            name="cvc"
+                                            type="number" 
+                                            required 
+                                            style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 0.5rem;"
+                                        >
+                                    </div>
                                 </div>
                                 <div>
                                     <label for="message" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Message (optionnel)</label>
@@ -220,6 +267,8 @@
             </form>
         </div>
     </div>
+    
+    <br>
 
 
     <script>
@@ -227,6 +276,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             const packages = document.querySelectorAll('.donation-package');
             const paymentMethods = document.querySelectorAll('.payment-method');
+            const mobilePayment = document.getElementById('mobile-payment');
+            const CardPayment = document.getElementById('card-payment');
+            const mobilePaymentContent = document.getElementById('mobile-payment-content');
+            const CardPaymentContent = document.getElementById('card-payment-content');
             const customBtn = document.querySelector('.custom-btn');
             const customAmount = document.getElementById('custom-amount');
             
@@ -271,7 +324,17 @@
                     selectedPaymentMethod = this.dataset.method;
                 });
             });
-            
+
+            CardPayment.addEventListener('click', function(){
+                mobilePaymentContent.style.display = 'none';
+                CardPaymentContent.style.display = 'block';
+            });
+
+            mobilePayment.addEventListener('click', function(){
+                mobilePaymentContent.style.display = 'block';
+                CardPaymentContent.style.display = 'none';
+            });
+
             // Sélection par défaut
             paymentMethods[0].click();
         });

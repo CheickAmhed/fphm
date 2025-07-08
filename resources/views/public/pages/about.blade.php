@@ -14,7 +14,6 @@
         </div>
     </section>
 
-    <div style="padding-top: 80px;">
         <!-- Mission Section -->
         <section class="section">
             <div class="container">
@@ -37,11 +36,11 @@
                             la vie des communautés.
                         </p>
                     </div>
-                    <div style="position: relative;">
+                    <div style="position: relative; order: 2;">
                         <img 
                             src="https://images.unsplash.com/photo-1566853166891-3936c0191f60"
                             alt="Mission PHM"
-                            style="width: 100%; border-radius: 1.5rem; box-shadow: var(--shadow-2xl);"
+                            style="width: 100%; height: 450px; border-radius: 1.5rem; box-shadow: var(--shadow-2xl);"
                         >
                         <div style="position: absolute; top: -1.5rem; right: -1.5rem; background: var(--primary-orange); color: white; padding: 1rem; border-radius: 50%; font-size: 2rem;">
                             🏆
@@ -55,11 +54,11 @@
         <section class="section">
             <div class="container">
                 <div class="grid grid-cols-2" style="align-items: center; gap: 4rem;">
-                    <div style="position: relative; order: 2;">
+                    <div style="position: relative; order: 1;">
                         <img 
                             src="https://images.unsplash.com/photo-1725083802424-e4bf1144ad4e"
                             alt="Vision PHM"
-                            style="width: 100%; border-radius: 1.5rem; box-shadow: var(--shadow-2xl);"
+                            style="width: 100%; height: 450px; border-radius: 1.5rem; box-shadow: var(--shadow-2xl);"
                         >
                         <div style="position: absolute; bottom: -1.5rem; left: -1.5rem; background: var(--primary-blue); color: white; padding: 1rem; border-radius: 50%; font-size: 2rem;">
                             👁️
@@ -183,7 +182,7 @@
                     <div class="card">
                         <div style="height: 256px; overflow: hidden;">
                             <img 
-                                src="https://images.unsplash.com/photo-1494790108755-2616b612b786"
+                                src="https://images.pexels.com/photos/30920008/pexels-photo-30920008.jpeg"
                                 alt="Mme Fatou Ouédraogo"
                                 class="card-image"
                                 style="height: 100%;"
@@ -239,7 +238,7 @@
                     </div>
                     <div style="max-width: 64rem; margin: 0 auto;">
                         <div style="display: flex; flex-direction: column; gap: 2rem;">
-                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="display: grid; align-items: flex-start; gap: 1rem;">
                                 <div style="width: 48px; height: 48px; background: var(--primary-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">
                                     1
                                 </div>
@@ -280,6 +279,5 @@
                 </div>
             </div>
         </section>
-    </div>
 
 @endsection

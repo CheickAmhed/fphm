@@ -1,7 +1,7 @@
 @extends('public.layouts.app')
 
 @section('content')
-    <section style="position: relative; height: 400px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark)); display: flex; align-items: center; justify-content: center;">
+    <section style="padding-top: 80px; position: relative; height: 400px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark)); display: flex; align-items: center; justify-content: center;">
         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
         <div class="container" style="position: relative; z-index: 10; text-align: center; color: white;">
             <div style="font-size: 4rem; margin-bottom: 1.5rem;">🤝</div>
@@ -83,7 +83,7 @@
                     </p>
                 </div>
                 
-                <div style="max-width: 48rem; margin: 0 auto;">
+                <div style="max-width: 100%; margin: 0 auto;">
                     <form class="volunteer-form card">
                         <div class="card-content">
                             <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 1.5rem;">
@@ -221,7 +221,7 @@
                 <div class="grid grid-cols-3">
                     <div style="text-align: center;">
                         <img 
-                            src="https://images.unsplash.com/photo-1494790108755-2616b612b786" 
+                            src="https://images.pexels.com/photos/30920008/pexels-photo-30920008.jpeg" 
                             alt="Marie Ouédraogo"
                             style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 1rem; object-fit: cover;"
                         >
@@ -267,6 +267,8 @@
             </section>
         </div>
     </div>
+
+    <br>
 
 
     <script>

@@ -42,6 +42,8 @@
         </div>
     </div>
 
+    <br>
+
 
     <script>
         // JavaScript spécifique pour la page projets
