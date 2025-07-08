@@ -1,5 +1,6 @@
 # Use official PHP image with required extensions
 FROM php:8.2-fpm
+FROM node:18 AS node_builder
 
 WORKDIR /app
 
